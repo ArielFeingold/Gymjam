@@ -1,0 +1,2 @@
+class Wset < ApplicationRecord
+end
