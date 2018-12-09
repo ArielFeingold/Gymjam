@@ -47,7 +47,7 @@ module Api::V1
 
       # Only allow a trusted parameter "white list" through.
       def exercise_params
-        params.require(:exercise).permit(:title, :muscle_group, :description, :equipment)
+        params.require(:exercise).permit(:title, :muscle, :description, :equipment)
       end
   end
 end

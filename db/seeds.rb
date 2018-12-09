@@ -1,7 +1,5 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create(username:"admin", email:"feingold.ariel@gmail.com", password:"@Nooni2008")
+Exercise.create(title:"Arnold Press", muscle:"Shoulders", description:"Stand with two dumbbells position in front of shoulders, palms facing body and elbows under wrists. Initiate movement by bringing elbows out to sides. Continue to raise elbows outward while pressing dumbbells overhead until arms are straight. Lower to front of shoulders in opposite pattern and repeat.", equipment:"dumbells")
+Exercise.create(title:"Barbell Bench Press", muscle:"Chest", description:"Lie back on a flat bench. Using a medium width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked.", equipment:"Barbell")
+Exercise.create(title:"Barbell Bench Press", muscle:"Chest", description:"Lie back on a flat bench. Using a medium width grip (a grip that creates a 90-degree angle in the middle of the movement between the forearms and the upper arms), lift the bar from the rack and hold it straight over you with your arms locked.", equipment:"Barbell")
+Exercise.create(title:"Barbell Curl", muscle:"Biceps", description:"Stand up with your torso upright while holding a barbell at a shoulder-width grip. The palm of your hands should be facing forward and the elbows should be close to the torso. ... Continue the movement until your biceps are fully contracted and the bar is at shoulder level.", equipment:"Barbell")
