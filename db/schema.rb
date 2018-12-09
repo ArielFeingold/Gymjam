@@ -51,8 +51,10 @@ ActiveRecord::Schema.define(version: 2018_12_09_204127) do
   create_table "wsets", force: :cascade do |t|
     t.integer "reps"
     t.float "weight"
+    t.bigint "exercise_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["exercise_id"], name: "index_wsets_on_exercise_id"
   end
 
 end
