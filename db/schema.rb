@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2018_12_09_204127) do
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.string "title", default: "Ungrouped"
-    t.string "group"
+    t.string "title"
+    t.string "group", default: "Ungrouped"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
