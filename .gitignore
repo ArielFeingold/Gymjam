@@ -24,3 +24,6 @@
 
 # Production
 /public
+
+#node modules
+/client/node_modules
