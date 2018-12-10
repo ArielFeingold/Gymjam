@@ -1,6 +1,6 @@
 module Api::V1
     class UsersController < ApplicationController
-    before_action :set_user, only: [:show, :update, :destroy]
+    before_action :authenticate_user, only: [:index, :show, :update]
 
     # GET /users
     def index
@@ -34,20 +34,10 @@ module Api::V1
       end
     end
 
-    # DELETE /users/1
-    def destroy
-      @user.destroy
-    end
-
     private
-      # Use callbacks to share common setup or constraints between actions.
-      def set_user
-        @user = User.find(params[:id])
-      end
-
       # Only allow a trusted parameter "white list" through.
       def user_params
-        params.require(:user).permit(:username, :email, :password_digest)
+        params.require(:user).permit(:username, :email, :password)
       end
   end
 end
