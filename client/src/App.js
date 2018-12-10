@@ -1,28 +1,53 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { withRouter, Switch, Route } from 'react-router-dom';
 
-class App extends Component {
+import { connect } from 'react-redux';
+import * as actions from './store/actions/index';
+import * as routesArrays from './routes/routeIndex'
+
+import Navbar from './components/Navbar';
+
+
+
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.onTryAutoLogin()
+  }
+
   render() {
+
+    let routes = null;
+    if(this.props.isAuthenticated) {
+      routes = routesArrays.authRouteIndex
+    } else {
+      routes = routesArrays.unAuthRouteIndex
+    }
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <React.Fragment>
+        <CssBaseline />
+        <Navbar />
+          <Switch>
+            {routes.map((prop, key) => {
+              return <Route path={prop.path} key={key} component={prop.component} />;
+            })}
+          </Switch>
+      </React.Fragment>
     );
   }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+    isAuthenticated: state.auth.token !== null
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoLogin: () => dispatch( actions.authCheckState() )
+  };
+};
+
+export default withRouter( connect( mapStateToProps, mapDispatchToProps)( App ) );
