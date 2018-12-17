@@ -9,7 +9,7 @@ export const authRouteIndex = [
   { path: "/login", name: "LoginPage", component: LoginPage },
   { path: "/signup", name: "SignupPage", component: SignupPage },
   { path: "/logout", name: "Logout", component: Logout },
-  { path: "/", name: "LandingPage", component: LoginPage }
+  { path: "/", name: "LandingPage", component: LandingPage }
 ];
 
 export const unAuthRouteIndex = [
